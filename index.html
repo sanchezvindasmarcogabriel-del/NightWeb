@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nightweb | Archivo paranormal colectivo</title>
+  <!-- Vinculo el css externo -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!--  logo, menú de cuenta y frase, este encabezado será totalmente fijo durante la navegación -->
+  <header class="encabezado">
+    <div class="encabezado__barra">
+      <a href="#inicio"><img src="img/nightweb logo.webp" alt="Nightweb" class="encabezado__logo"></a>
+
+      <!-- Menú de cuenta, estará arriba a la derecha, JS llena las opciones -->
+      <div class="cuenta">
+        <button type="button" id="btnCuenta" class="cuenta__boton" aria-expanded="false">
+          <img src="nightweb mini logo.jpg" alt="" class="cuenta__logo">
+          <span id="textoCuenta">Iniciar sesión</span>
+          <span class="cuenta__flecha">&#8964;</span>
+        </button>
+        <div id="menuCuenta" class="cuenta__menu" hidden></div>
+      </div>
+    </div>
+    <p class="encabezado__frase">“No me burlaría de las pesadillas de alguien hasta que no haya dormido una noche en su propia paranoia”.</p>
+  </header>
+
+  <!-- BARRA LATERAL FIJA -->
+  <nav class="lateral" aria-label="Navegación principal">
+    <ul class="lateral__lista">
+      <li><a href="#inicio" class="lateral__enlace"><span class="lateral__icono">&#9636;</span>Inicio</a></li>
+      <li><a href="#publicaciones" class="lateral__enlace"><span class="lateral__icono">&#9636;</span>Publicaciones</a></li>
+      <li><a href="#crear" class="lateral__enlace"><span class="lateral__icono">+</span>Crear publicación</a></li>
+      <li><a href="#investigacion" class="lateral__enlace"><span class="lateral__icono">&#9906;</span>Investigación</a></li>
+      <li><a href="#acerca" class="lateral__enlace"><span class="lateral__icono">&#9432;</span>Acerca de</a></li>
+    </ul>
+    <div class="lateral__nota">
+      <p class="etiqueta">Archivo abierto</p>
+      <p>Lee con respeto. Detrás de cada relato hay alguien que decidió contarlo.</p>
+    </div>
+  </nav>
+
+  <main class="principal">
+
+    <!-- INICIO -->
+    <section id="inicio" class="seccion hero">
+      <p class="etiqueta etiqueta--roja">Archivo colectivo de lo inexplicable</p>
+      <h1 class="hero__titulo">Hay historias que solo se atreven a salir <span class="hero__apagado">de noche.</span></h1>
+      <p class="hero__texto">Un lugar para documentar pesadillas, misterios y manifestaciones. Comparte evidencia, encuentra patrones y descubre que quizá no fuiste la única persona que lo vio.</p>
+      <div class="hero__botones">
+        <a href="#crear" class="btn btn--rojo">Compartir mi historia</a>
+        <a href="#publicaciones" class="btn btn--borde">Explorar relatos</a>
+      </div>
+    </section>
+
+    <!-- PUBLICACIONES -->
+    <section id="publicaciones" class="seccion">
+      <p class="etiqueta etiqueta--roja">Últimas señales</p>
+      <div class="seccion__cabecera">
+        <h2 class="seccion__titulo">Publicaciones del archivo</h2>
+        <span id="contador" class="etiqueta">3 registros</span>
+      </div>
+
+      <!-- Filtro por categoría, JS mostrará el botón activo) -->
+      <div class="filtros" id="filtros">
+        <button type="button" class="filtro filtro--activo" data-cat="todas">Todas</button>
+        <button type="button" class="filtro" data-cat="Alucinación">Alucinación</button>
+        <button type="button" class="filtro" data-cat="Misterio">Misterio</button>
+        <button type="button" class="filtro" data-cat="Experiencia">Experiencia</button>
+        <button type="button" class="filtro" data-cat="Manifestación">Manifestación</button>
+        <button type="button" class="filtro" data-cat="Pesadilla">Pesadilla</button>
+        <button type="button" class="filtro" data-cat="Ultrapesadilla">Ultrapesadilla</button>
+      </div>
+
+      <!-- 3 publicaciones de ejemplo en HTML; JS las reemplaza al cargar leyendo el arreglo -->
+      <div id="listaPublicaciones" class="publicaciones">
+        <article class="tarjeta">
+          <div class="tarjeta__cabecera">
+            <span class="avatar">NO</span>
+            <div><p class="tarjeta__usuario">@NocturnaCR</p><p class="tarjeta__fecha">10 NOV 2026</p></div>
+            <span class="insignia">Ultrapesadilla</span>
+          </div>
+          <div class="tarjeta__cuerpo">
+            <h3 class="tarjeta__titulo">Alguien se sentó conmigo en mi cama</h3>
+            <p class="tarjeta__texto">Durante siete noches soñé con la misma habitación y la misma silla vacía. A la sétima noche noté una presión el pecho y a mi izquierda también 
+              lo noté, cuando abrí los ojos vi una figura oscura, pesada, que me estaba vigilando detenidamente, yo solo me quedé completamente paralizado y no me podía mover... 
+            </p>
+          </div>
+          <div class="tarjeta__pie"><span class="tarjeta__likes">♡ 136 Me gusta</span></div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta__cabecera">
+            <span class="avatar">LU</span>
+            <div><p class="tarjeta__usuario">@LunaNegra</p><p class="tarjeta__fecha">10 NOV 2026</p></div>
+            <span class="insignia">Misterio</span>
+          </div>
+          <div class="tarjeta__cuerpo">
+            <h3 class="tarjeta__titulo">La ventana del cuarto piso</h3>
+            <p class="tarjeta__texto">Entramos a la fábrica cuando empezó a llover. El edificio no tenía cuarto piso. Sin embargo, desde la parte trasera de 
+              esta fabrica (que fue por dónde entramos) vimos que claramente está fábrica abandonada tenía un cuarto piso, una ventana gigante con una luz tenué, la unica que existía en esa lugubre fábrica, 
+              lo peor de la situación fue que fuimos hacía allá, creimos que alguien nos podría ayudar para dejar de estar perdidos. Pero, cuando llegamos a las escaleras vimos que solo existía hasta el piso 3, 
+              y que está habitación tenue, nunca existió. 
+            </p>
+          </div>
+          <div class="tarjeta__pie"><span class="tarjeta__likes">♡ 58 Me gusta</span></div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta__cabecera">
+            <span class="avatar">VE</span>
+            <div><p class="tarjeta__usuario">@VelaApagada</p><p class="tarjeta__fecha">9 NOV 2026</p></div>
+            <span class="insignia">Manifestación</span>
+          </div>
+          <div class="tarjeta__cuerpo">
+            <h3 class="tarjeta__titulo">Pasos en mi puerta cada noche.</h3>
+            <p class="tarjeta__texto">Cada noche, cada madrugada a las 3am se escuchan pasos frente a mi puerta y vivo completamente solo...</p>
+          </div>
+          <div class="tarjeta__pie"><span class="tarjeta__likes">♡ 24 Me gusta</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PUBLICACIÓN -->
+    <section id="crear" class="seccion">
+      <div class="panel">
+        <p class="etiqueta etiqueta--roja">Tu relato</p>
+        <h2 class="seccion__titulo">¿Qué viste cuando nadie más miraba?</h2>
+
+        <!-- Aviso visible solo sin sesión -->
+        <div id="avisoSesion" class="aviso">
+          <p>Necesitas iniciar sesión para compartir una experiencia.</p>
+          <p class="aviso__sub">Tu nombre de usuario aparecerá automáticamente y el relato no podrá editarse después.</p>
+        </div>
+
+        <!-- Formulario visible solo con sesión, o sea formulario para la publicación -->
+        <form id="formPublicacion" class="formulario" hidden novalidate>
+          <label for="usuarioPub">Nombre del usuario</label>
+          <input type="text" id="usuarioPub" readonly>
+
+          <label for="tituloPub">Título</label>
+          <input type="text" id="tituloPub" maxlength="80" placeholder="Ponle un título a tu relato">
+
+          <label for="contenidoPub">Contenido de la publicación</label>
+          <textarea id="contenidoPub" rows="6" maxlength="2000" placeholder="Cuenta lo que viviste..."></textarea>
+
+          <label for="categoriaPub">Categoría</label>
+          <select id="categoriaPub">
+            <option value="">Elige una categoría</option>
+            <option>Alucinación</option>
+            <option>Misterio</option>
+            <option>Experiencia</option>
+            <option>Manifestación</option>
+            <option>Pesadilla</option>
+            <option>Ultrapesadilla</option>
+          </select>
+
+          <label for="imagenPub">Evidencia (solo imágenes)</label>
+          <input type="file" id="imagenPub" accept="image/*">
+
+          <p id="errorPub" class="error" role="alert"></p>
+          <button type="submit" class="btn btn--rojo">Publicar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- INVESTIGACIÓN -->
+    <section id="investigacion" class="seccion">
+      <p class="etiqueta etiqueta--roja">Rutas de investigación</p>
+      <h2 class="seccion__titulo">Temas que siguen abiertos</h2>
+      <p class="seccion__texto">Puntos de partida para reconocer patrones, contrastar testimonios y dar a conocer tu propia historia.</p>
+      <div class="temas">
+        <article class="tema">
+          <span class="tema__num">01</span>
+          <h3 class="tema__titulo">Expediciones a lugares abandonados</h3>
+          <p>Experiencias espeluznantes, hallazgos y relatos de quienes entraron donde nadie debía volver.</p>
+        </article>
+        <article class="tema">
+          <span class="tema__num">02</span>
+          <h3 class="tema__titulo">Eventos Paranormales en Hospitales Psiquiatricos</h3>
+          <p> Pasillos vacíos, voces sin origen y expedientes de otro plano desconocido.</p>
+        </article>
+        <article class="tema">
+          <span class="tema__num">03</span>
+          <h3 class="tema__titulo">Sectas y rituales peligrosos</h3>
+          <p>Símbolos, sospechas y Eventos ocultos que conviene investigar sin exponerse.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Creación de la sección de perfil (solo se mostrará en el menú principal) -->
+    <section id="perfil" class="seccion" hidden>
+      <p class="etiqueta etiqueta--roja">Tu cuenta</p>
+      <h2 class="seccion__titulo">Mi perfil</h2>
+      <ul id="datosPerfil" class="perfil"></ul>
+    </section>
+
+    <!-- ACERCA DE -->
+    <footer id="acerca" class="seccion acerca">
+      <div class="acerca__fila">
+        <div>
+          <p class="etiqueta etiqueta--roja">Acerca de Nightweb</p>
+          <h2 class="seccion__titulo">No estás imaginándolo a solas.</h2>
+        </div>
+        <div class="acerca__texto">
+          <p>Nightweb nació para que las experiencias perturbadoras no terminen silenciadas. Aquí cada testimonio puede convertirse en una pista para alguien más.</p>
+          <p>La plataforma reúne relatos y evidencia visual sin juzgar a quien comparte. Lee, investiga y participa con respeto: las historias pertenecen a quienes tuvieron el valor de publicarlas.</p>
+        </div>
+      </div>
+      <div class="acerca__pie">
+        <span>Nightweb — Archivo paranormal colectivo</span>
+        <span>Hecho para quienes no pueden más con su propia paranoia.</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- VENTANA DE INICIO DE SESIÓN / REGISTRO -->
+  <dialog id="dlgAuth" class="dialogo">
+    <div class="dialogo__tabs">
+      <button type="button" class="tab tab--activa" data-tab="login">Iniciar sesión</button>
+      <button type="button" class="tab" data-tab="registro">Crear cuenta</button>
+      <button type="button" id="btnCerrarDlg" class="dialogo__cerrar" aria-label="Cerrar">&times;</button>
+    </div>
+
+    <form id="formLogin" class="formulario" novalidate>
+      <label for="loginUsuario">Usuario</label>
+      <input type="text" id="loginUsuario" autocomplete="username">
+      <label for="loginClave">Contraseña</label>
+      <input type="password" id="loginClave" autocomplete="current-password">
+      <p id="errorLogin" class="error" role="alert"></p>
+      <button type="submit" class="btn btn--rojo">Entrar</button>
+    </form>
+
+    <form id="formRegistro" class="formulario" novalidate hidden>
+      <label for="regUsuario">Usuario (3 a 20 letras, números o _)</label>
+      <input type="text" id="regUsuario" autocomplete="username">
+      <label for="regCorreo">Correo</label>
+      <input type="email" id="regCorreo" autocomplete="email">
+      <label for="regClave">Contraseña (mínimo 6, con letra y número)</label>
+      <input type="password" id="regClave" autocomplete="new-password">
+      <label for="regClave2">Repite la contraseña</label>
+      <input type="password" id="regClave2" autocomplete="new-password">
+      <p id="errorRegistro" class="error" role="alert"></p>
+      <button type="submit" class="btn btn--rojo">Crear cuenta</button>
+    </form>
+  </dialog>
+
+  <!-- JavaScript externo -->
+  <script src="main.js"></script>
+</body>
+</html>

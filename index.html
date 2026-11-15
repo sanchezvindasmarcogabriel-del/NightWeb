@@ -17,9 +17,9 @@
       <!-- Menú de cuenta, estará arriba a la derecha, JS llena las opciones -->
       <div class="cuenta">
         <button type="button" id="btnCuenta" class="cuenta__boton" aria-expanded="false">
-          <img src="nightweb mini logo.jpg" alt="" class="cuenta__logo">
-          <span id="textoCuenta">Iniciar sesión</span>
-          <span class="cuenta__flecha">&#8964;</span>
+          <span class="cuenta__icono">&#9786;</span>
+          <span id="textoCuenta">NightUser</span>
+          
         </button>
         <div id="menuCuenta" class="cuenta__menu" hidden></div>
       </div>
@@ -47,7 +47,7 @@
     <!-- INICIO -->
     <section id="inicio" class="seccion hero">
       <p class="etiqueta etiqueta--roja">Archivo colectivo de lo inexplicable</p>
-      <h1 class="hero__titulo">Hay historias que solo se atreven a salir <span class="hero__apagado">de noche.</span></h1>
+      <h1 class="hero__titulo">Hay historias que solo se pueden escuchar <span class="hero__apagado">en la oscuridad.</span></h1>
       <p class="hero__texto">Un lugar para documentar pesadillas, misterios y manifestaciones. Comparte evidencia, encuentra patrones y descubre que quizá no fuiste la única persona que lo vio.</p>
       <div class="hero__botones">
         <a href="#crear" class="btn btn--rojo">Compartir mi historia</a>
@@ -87,8 +87,17 @@
             <p class="tarjeta__texto">Durante siete noches soñé con la misma habitación y la misma silla vacía. A la sétima noche noté una presión el pecho y a mi izquierda también 
               lo noté, cuando abrí los ojos vi una figura oscura, pesada, que me estaba vigilando detenidamente, yo solo me quedé completamente paralizado y no me podía mover... 
             </p>
+            <img src="img/paralisis.png" alt="Evidencia de la publicación: figura oscura frente a la cama" class="tarjeta__imagen">
+
           </div>
-          <div class="tarjeta__pie"><span class="tarjeta__likes">♡ 136 Me gusta</span></div>
+          <span class="tarjeta__likes">
+  <svg class="like__icono" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M4 21V10a8 8 0 0 1 16 0v11l-2.67-2.5L14.67 21 12 18.5 9.33 21l-2.66-2.5z"/>
+    <circle class="like__ojo" cx="9" cy="10" r="2"/>
+    <circle class="like__ojo" cx="15" cy="10" r="2"/>
+  </svg>
+  136 Me gusta
+</span>
         </article>
         <article class="tarjeta">
           <div class="tarjeta__cabecera">
@@ -104,7 +113,14 @@
               y que está habitación tenue, nunca existió. 
             </p>
           </div>
-          <div class="tarjeta__pie"><span class="tarjeta__likes">♡ 58 Me gusta</span></div>
+          <span class="tarjeta__likes">
+  <svg class="like__icono" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M4 21V10a8 8 0 0 1 16 0v11l-2.67-2.5L14.67 21 12 18.5 9.33 21l-2.66-2.5z"/>
+    <circle class="like__ojo" cx="9" cy="10" r="2"/>
+    <circle class="like__ojo" cx="15" cy="10" r="2"/>
+  </svg>
+  80 Me gusta
+</span>
         </article>
         <article class="tarjeta">
           <div class="tarjeta__cabecera">
@@ -115,54 +131,86 @@
           <div class="tarjeta__cuerpo">
             <h3 class="tarjeta__titulo">Pasos en mi puerta cada noche.</h3>
             <p class="tarjeta__texto">Cada noche, cada madrugada a las 3am se escuchan pasos frente a mi puerta y vivo completamente solo...</p>
+            <img src="img/puerta.jpg" alt="Evidencia de la publicación: Pasos en mi puerta cada noche." class="tarjeta__imagen">
+            
           </div>
-          <div class="tarjeta__pie"><span class="tarjeta__likes">♡ 24 Me gusta</span></div>
+          <span class="tarjeta__likes">
+  <svg class="like__icono" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M4 21V10a8 8 0 0 1 16 0v11l-2.67-2.5L14.67 21 12 18.5 9.33 21l-2.66-2.5z"/>
+    <circle class="like__ojo" cx="9" cy="10" r="2"/>
+    <circle class="like__ojo" cx="15" cy="10" r="2"/>
+  </svg>
+  167 Me gusta
+</span>
         </article>
       </div>
     </section>
 
     <!-- PUBLICACIÓN -->
-    <section id="crear" class="seccion">
-      <div class="panel">
-        <p class="etiqueta etiqueta--roja">Tu relato</p>
-        <h2 class="seccion__titulo">¿Qué viste cuando nadie más miraba?</h2>
+    <!-- CREAR PUBLICACIÓN -->
+<section id="crear" class="seccion">
+  <div class="panel">
+    <p class="etiqueta etiqueta--roja">Tu relato</p>
+    <h2 class="seccion__titulo">¿Qué viste cuando nadie más miraba?</h2>
+    <p class="seccion__texto">Publicando como <strong class="usuario-rojo">@NightUser</strong>. Tu relato no podrá editarse después de publicarlo.</p>
 
-        <!-- Aviso visible solo sin sesión -->
-        <div id="avisoSesion" class="aviso">
-          <p>Necesitas iniciar sesión para compartir una experiencia.</p>
-          <p class="aviso__sub">Tu nombre de usuario aparecerá automáticamente y el relato no podrá editarse después.</p>
-        </div>
+    <form id="formPublicacion" class="formulario" novalidate>
 
-        <!-- Formulario visible solo con sesión, o sea formulario para la publicación -->
-        <form id="formPublicacion" class="formulario" hidden novalidate>
-          <label for="usuarioPub">Nombre del usuario</label>
-          <input type="text" id="usuarioPub" readonly>
-
-          <label for="tituloPub">Título</label>
-          <input type="text" id="tituloPub" maxlength="80" placeholder="Ponle un título a tu relato">
-
-          <label for="contenidoPub">Contenido de la publicación</label>
-          <textarea id="contenidoPub" rows="6" maxlength="2000" placeholder="Cuenta lo que viviste..."></textarea>
-
-          <label for="categoriaPub">Categoría</label>
-          <select id="categoriaPub">
-            <option value="">Elige una categoría</option>
-            <option>Alucinación</option>
-            <option>Misterio</option>
-            <option>Experiencia</option>
-            <option>Manifestación</option>
-            <option>Pesadilla</option>
-            <option>Ultrapesadilla</option>
-          </select>
-
-          <label for="imagenPub">Evidencia (solo imágenes)</label>
-          <input type="file" id="imagenPub" accept="image/*">
-
-          <p id="errorPub" class="error" role="alert"></p>
-          <button type="submit" class="btn btn--rojo">Publicar</button>
-        </form>
+      <!-- Usuario (fijo, solo lectura) -->
+      <div class="campo">
+        <label for="usuarioPub">Nombre del usuario</label>
+        <input type="text" id="usuarioPub" value="NightUser" readonly>
       </div>
-    </section>
+
+      <!-- Título -->
+      <div class="campo">
+        <label for="tituloPub">Título</label>
+        <input type="text" id="tituloPub" maxlength="80" placeholder="Ponle un título a tu relato">
+      </div>
+
+      <!-- Contenido -->
+      <div class="campo">
+        <label for="contenidoPub">Contenido de la publicación</label>
+        <textarea id="contenidoPub" rows="7" maxlength="2000" placeholder="Cuenta lo que viviste..."></textarea>
+        <span id="contadorTexto" class="campo__contador">0 / 2000</span>
+      </div>
+
+      <!-- Categoría (obligatoria) -->
+      <fieldset class="campo categorias">
+        <legend>Categoría</legend>
+        <div class="categorias__lista">
+          <label class="chip"><input type="radio" name="categoria" value="Alucinación"><span>Alucinación</span></label>
+          <label class="chip"><input type="radio" name="categoria" value="Misterio"><span>Misterio</span></label>
+          <label class="chip"><input type="radio" name="categoria" value="Experiencia"><span>Experiencia</span></label>
+          <label class="chip"><input type="radio" name="categoria" value="Manifestación"><span>Manifestación</span></label>
+          <label class="chip"><input type="radio" name="categoria" value="Pesadilla"><span>Pesadilla</span></label>
+          <label class="chip"><input type="radio" name="categoria" value="Ultrapesadilla"><span>Ultrapesadilla</span></label>
+        </div>
+      </fieldset>
+
+      <!-- Adjuntar imagen (solo imágenes) -->
+      <div class="campo">
+        <span class="campo__etiqueta">Evidencia (solo imágenes)</span>
+        <input type="file" id="imagenPub" class="subir__input" accept="image/*">
+        <label for="imagenPub" id="zonaSubida" class="subir">
+          <span class="subir__icono">+</span>
+          <span class="subir__texto">Adjuntar imagen</span>
+          <span class="subir__sub">JPG, PNG o WEBP</span>
+        </label>
+
+        <!-- Vista previa (JS la mostrará al elegir una imagen) -->
+        <div id="vistaPrevia" class="previa" hidden>
+          <img id="imagenPrevia" class="previa__img" alt="Vista previa de la imagen">
+          <button type="button" id="btnQuitarImagen" class="previa__quitar">Quitar imagen</button>
+        </div>
+      </div>
+
+      <!-- Mensaje de error (JS) y botón -->
+      <p id="errorPub" class="error" role="alert"></p>
+      <button type="submit" class="btn btn--rojo">Publicar</button>
+    </form>
+  </div>
+</section>
 
     <!-- INVESTIGACIÓN -->
     <section id="investigacion" class="seccion">
@@ -249,3 +297,4 @@
   <script src="main.js"></script>
 </body>
 </html>
+

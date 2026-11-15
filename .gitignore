@@ -1,0 +1,21 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configuración del editor
+.vscode/
+*.code-workspace
+
+# Dependencias y registros
+node_modules/
+npm-debug.log*
+*.log
+
+# Archivos temporales y copias de respaldo
+*.tmp
+*.bak
+*~
+
+# Entregas comprimidas (el .zip se sube a Teams, no al repositorio)
+*.zip

@@ -2,7 +2,7 @@
 
 Archivo colectivo de lo inexplicable: una red social ficticia donde las personas comparten pesadillas, misterios y experiencias paranormales.
 
-**Autor:** [Marco Sánchez Vindas] · [Sección 10-4] · Proyecto I, II Semestre 2026
+**Autor:** Marco Sánchez Vindas · Sección 10-4 · Proyecto I, II Semestre 2026
 
 ## Descripción
 Nightweb es una página web interactiva hecha con HTML, CSS y JavaScript. Permite publicar relatos con imagen opcional, dar "Me gusta", filtrar y buscar publicaciones. Es el proyecto de Programación para Web, versionado con Git y GitHub para Diseño de Software.

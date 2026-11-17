@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nightweb | Archivo paranormal colectivo</title>
+  <title>Nightweb | Historias paranormales</title>
   <!-- Vinculo el css externo -->
   <link rel="stylesheet" href="css/style.css">
   <!-- JavaScript externo -->
@@ -13,22 +13,19 @@
 
   <!--  logo, menú de cuenta y frase, este encabezado será totalmente fijo durante la navegación -->
   <header class="encabezado">
-    <div class="encabezado__barra">
-      <a href="#inicio"><img src="img/nightweb logo.webp" alt="Nightweb" class="encabezado__logo"></a>
+  <div class="encabezado__barra">
+    <a href="#inicio"><img src="img/nightweb logo.webp" alt="Nightweb" class="encabezado__logo"></a>
 
-      <!-- Menú de cuenta, estará arriba a la derecha, JS llena las opciones -->
-      <div class="cuenta">
-        <button type="button" id="btnCuenta" class="cuenta__boton" aria-expanded="false">
-          <span class="cuenta__icono">&#9786;</span>
-          <span id="textoCuenta">NightUser</span>
-          
-        </button>
-        <div id="menuCuenta" class="cuenta__menu" hidden></div>
-      </div>
+    <!-- Botón de cuenta: lleva a la sección de perfil -->
+    <div class="cuenta">
+      <button type="button" id="btnCuenta" class="cuenta__boton" aria-label="Ir a mi perfil">
+        <span class="cuenta__icono">&#9786;</span>
+        <span id="textoCuenta">NightUser</span>
+      </button>
     </div>
-    <p class="encabezado__frase">“No me burlaría de las pesadillas de alguien hasta que no haya dormido una noche en su propia paranoia”.</p>
-  </header>
-
+  </div>
+  <p class="encabezado__frase">“No me burlaría de las pesadillas de alguien hasta que no haya dormido una noche en su propia paranoia”.</p>
+</header>
   <!-- BARRA LATERAL FIJA -->
   <nav class="lateral" aria-label="Navegación principal">
     <ul class="lateral__lista">
@@ -64,7 +61,21 @@
         <h2 class="seccion__titulo">Publicaciones del archivo</h2>
         <span id="contador" class="etiqueta">3 registros</span>
       </div>
-
+      <!-- Buscador y orden -->
+<div class="herramientas">
+  <div class="buscador">
+    <label for="buscador" class="sr-only">Buscar publicaciones</label>
+    <input type="search" id="buscador" placeholder="Buscar por título, texto, usuario o categoría...">
+  </div>
+  <div class="orden">
+    <label for="ordenPub">Ordenar por</label>
+    <select id="ordenPub">
+      <option value="recientes">Más recientes</option>
+      <option value="gustadas">Más gustadas</option>
+      <option value="antiguas">Más antiguas</option>
+    </select>
+  </div>
+</div>
       <!-- Filtro por categoría, JS mostrará el botón activo) -->
       <div class="filtros" id="filtros">
         <button type="button" class="filtro filtro--activo" data-cat="todas">Todas</button>
@@ -150,6 +161,7 @@
 
     <!-- PUBLICACIÓN -->
     <!-- CREAR PUBLICACIÓN -->
+     
 <section id="crear" class="seccion">
   <div class="panel">
     <p class="etiqueta etiqueta--roja">Tu relato</p>
@@ -214,6 +226,31 @@
   </div>
 </section>
 
+<li><a href="#perfil" class="lateral__enlace"><span class="lateral__icono">&#9786;</span>Perfil</a></li>
+
+<!-- PERFIL -->
+<section id="perfil" class="seccion">
+  <p class="etiqueta etiqueta--roja">Tu cuenta</p>
+  <h2 class="seccion__titulo">Mi perfil</h2>
+
+  <div class="perfil__cabecera">
+    <span class="avatar avatar--perfil avatar--grande">&#9786;</span>
+    <div>
+      <p class="perfil__usuario">@NightUser</p>
+      <p class="perfil__sub">Miembro del archivo colectivo</p>
+    </div>
+  </div>
+
+  <ul class="perfil">
+    <li>Publicaciones<strong id="statPublicaciones">0</strong></li>
+    <li>Me gusta recibidos<strong id="statLikes">0</strong></li>
+    <li>Categoría favorita<strong id="statCategoria">—</strong></li>
+  </ul>
+
+  <h3 class="perfil__subtitulo">Mis publicaciones</h3>
+  <ul id="misPublicaciones" class="mis-publicaciones"></ul>
+</section>
+
     <!-- INVESTIGACIÓN -->
     <section id="investigacion" class="seccion">
       <p class="etiqueta etiqueta--roja">Rutas de investigación</p>
@@ -238,12 +275,6 @@
       </div>
     </section>
 
-    <!-- Creación de la sección de perfil (solo se mostrará en el menú principal) -->
-    <section id="perfil" class="seccion" hidden>
-      <p class="etiqueta etiqueta--roja">Tu cuenta</p>
-      <h2 class="seccion__titulo">Mi perfil</h2>
-      <ul id="datosPerfil" class="perfil"></ul>
-    </section>
 
     <!-- ACERCA DE -->
     <footer id="acerca" class="seccion acerca">
